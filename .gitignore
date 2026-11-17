@@ -1,0 +1,32 @@
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.swp
+*.log
+
+# Node.js dependencies and generated files
+node_modules/
+dist/
+coverage/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
