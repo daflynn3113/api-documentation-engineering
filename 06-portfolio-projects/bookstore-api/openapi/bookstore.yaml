@@ -1,0 +1,113 @@
+openapi: 3.1.0
+
+info:
+  title: Bookstore API
+  description: A sample REST API for managing bookstore records.
+  version: 1.0.0
+
+servers:
+  - url: https://api.example.com/v1
+    description: Example server (not deployed)
+
+components:
+  schemas:
+    Book:
+      type: object
+      description: Represents a book in the bookstore catalog.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier assigned to the book.
+          example: 1
+        title:
+          type: string
+          description: Title of the book.
+          example: Clean Code
+        author:
+          type: string
+          description: Name of the book's author.
+          example: Robert C. Martin
+        isbn:
+          type: string
+          description: International Standard Book Number.
+          example: "9780132350884"
+        publicationYear:
+          type: integer
+          description: Year in which the book was published.
+          example: 2008
+        price:
+          type: number
+          format: double
+          description: Price of the book.
+          example: 35.99
+        available:
+          type: boolean
+          description: Indicates whether the book is available.
+          example: true
+      required:
+        - id
+        - title
+        - author
+        - isbn
+        - publicationYear
+        - price
+        - available
+
+paths:
+  /books:
+    get:
+      operationId: getBooks
+      summary: Retrieve all books
+      description: Returns the collection of books available in the bookstore catalog.
+      responses:
+        "200":
+          description: Successfully retrieved the book collection.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  books:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Book"
+              example:
+                books:
+                  - id: 1
+                    title: Clean Code
+                    author: Robert C. Martin
+                    isbn: "9780132350884"
+                    publicationYear: 2008
+                    price: 35.99
+                    available: true
+
+  /books/{bookId}:
+    get:
+      operationId: getBookById
+      summary: Retrieve a book by ID
+      description: Returns the details of a specific book using its unique identifier.
+      parameters:
+        - name: bookId
+          in: path
+          required: true
+          description: Unique identifier of the book.
+          schema:
+            type: integer
+          example: 1
+      responses:
+        "200":
+          description: Successfully retrieved the book.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Book"
+              example:
+                id: 1
+                title: Clean Code
+                author: Robert C. Martin
+                isbn: "9780132350884"
+                publicationYear: 2008
+                price: 35.99
+                available: true
+        "404":
+          description: Book not found.

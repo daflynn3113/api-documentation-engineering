@@ -1,0 +1,31 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "isbn": "9780132350884",
+      "publicationYear": 2008,
+      "price": 35.99,
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": "The Pragmatic Programmer",
+      "author": "David Thomas and Andrew Hunt",
+      "isbn": "9780135957059",
+      "publicationYear": 2019,
+      "price": 42.5,
+      "available": true
+    },
+    {
+      "id": 3,
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "isbn": "9781449373320",
+      "publicationYear": 2017,
+      "price": 49.99,
+      "available": false
+    }
+  ]
+}
